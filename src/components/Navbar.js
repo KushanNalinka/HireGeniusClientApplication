@@ -18,11 +18,11 @@ const Navbar = () => {
 
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-6 text-[#DBD8E3]">
-          <a href="#" className="hover:text-[#5C5470] transition duration-300">Industries</a>
-          <a href="#" className="hover:text-[#5C5470] transition duration-300">Solutions</a>
-          <a href="#" className="hover:text-[#5C5470] transition duration-300">Customer Success</a>
-          <a href="#" className="hover:text-[#5C5470] transition duration-300">Partners</a>
-          <a href="#" className="hover:text-[#5C5470] transition duration-300">About</a>
+          <a href="" className="hover:text-[#5C5470] transition duration-300">Industries</a>
+          <a href="" className="hover:text-[#5C5470] transition duration-300">Solutions</a>
+          <a href="" className="hover:text-[#5C5470] transition duration-300">Customer Success</a>
+          <a href="" className="hover:text-[#5C5470] transition duration-300">Partners</a>
+          <a href="" className="hover:text-[#5C5470] transition duration-300">About</a>
           <button className="border border-[#DBD8E3] text-[#DBD8E3] rounded-md px-4 py-1 hover:bg-[#DBD8E3] hover:text-[#2A2438] transition duration-300">
             Book a Demo
           </button>
