@@ -265,7 +265,7 @@ const ConfirmationPage = () => {
       </div>
 
       <p className="text-center text-[#BDB7C6] mt-6 text-sm">
-        You can find the details of your application processing in the <a href="" className="text-blue-400">privacy policy</a>.
+        You can find the details of your application processing in the <a href="/" className="text-blue-400">privacy policy</a>.
       </p>
 
     </div>
