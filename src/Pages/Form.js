@@ -22,7 +22,9 @@ const JobApplicationForm = () => {
       email: "",
       confirmEmail: "",
       contactNumber: "", // Added Contact Number
-      noOfYearsExperience: "", // Added No of Years of Experience
+      noofYearsExperience: "", // Added No of Years of Experience
+      university:"",
+      education_level:"",
       experience: [],
       education: [],
       linkedIn: "",
@@ -350,7 +352,15 @@ const JobApplicationForm = () => {
 
               <div >
             <label className="block text-sm font-semibold">No of Years of Experience *</label>
-            <input type="number" name="noOfYearsExperience" value={formData.noOfYearsExperience} onChange={handleInputChange} className="mt-1 p-2 block w-full border border-gray-300 rounded-md" required />
+            <input type="number" name="noOfYearsExperience" value={formData.noofYearsExperience} onChange={handleInputChange} className="mt-1 p-2 block w-full border border-gray-300 rounded-md" required />
+          </div>
+           <div >
+            <label className="block text-sm font-semibold">University *</label>
+            <input type="number" name="noOfYearsExperience" value={formData.university} onChange={handleInputChange} className="mt-1 p-2 block w-full border border-gray-300 rounded-md" required />
+          </div>
+           <div >
+            <label className="block text-sm font-semibold">Educational Level *</label>
+            <input type="number" name="noOfYearsExperience" value={formData.education_level} onChange={handleInputChange} className="mt-1 p-2 block w-full border border-gray-300 rounded-md" required />
           </div>
         </form>
       </div>
