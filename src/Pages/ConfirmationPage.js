@@ -438,10 +438,10 @@ return (
             </div>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="space-y-5">
-                <div className="flex items-center space-x-4 p-4 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-2xl border border-cyan-400/30">
+                {/* <div className="flex items-center space-x-4 p-4 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-2xl border border-cyan-400/30">
                   <span className="text-2xl">🏢</span>
                   <div><strong className="text-cyan-200">Department:</strong> <span className="text-white">{job.jobDepartment}</span></div>
-                </div>
+                </div> */}
                 <div className="flex items-center space-x-4 p-4 bg-gradient-to-r from-emerald-500/20 to-teal-500/20 rounded-2xl border border-emerald-400/30">
                   <span className="text-2xl">📅</span>
                   <div><strong className="text-emerald-200">Posted:</strong> <span className="text-white">{job.jobPostedDate}</span></div>
