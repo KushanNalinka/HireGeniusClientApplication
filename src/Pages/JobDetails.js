@@ -248,118 +248,175 @@ const JobDetails = () => {
   };
 
   return (
-    <>
-      <Navbar />
-      <motion.div
-        className="container mx-auto px-6 py-12 flex flex-col"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.5 }}
-      >
-        {/* Action Buttons in a Single Row */}
-        <motion.div
-          className="flex justify-between items-center bg-[#352F44] text-[#DBD8E3] p-4 rounded-lg shadow-lg mb-6"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.5 }}
-        >
-          {job.file_name && (
-            <motion.a
-              href={`http://localhost:5000/uploads/general/${job.file_name}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#DBD8E3] underline hover:text-blue-400"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 1.6 }}
-            >
-              📄 View Job Description PDF
-            </motion.a>
-          )}
+  <>
+    <Navbar />
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 px-6 py-12">
+      <div className="max-w-5xl mx-auto">
+        {/* Header Section */}
+        <div className="bg-white rounded-2xl shadow-xl border border-slate-200 p-8 mb-8">
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+            <div className="flex-1">
+              <h1 className="text-3xl font-bold text-slate-900 mb-2">
+                {job.jobTitle}
+              </h1>
+              <p className="text-lg text-slate-600 mb-4">{job.jobName}</p>
+              <div className="flex flex-wrap gap-4 text-sm text-slate-500">
+                <span className="flex items-center gap-2">
+                  📍 {job.jobLocation}
+                </span>
+                <span className="flex items-center gap-2">
+                  🏢 {job.jobDepartment}
+                </span>
+                <span className="flex items-center gap-2">
+                  💼 {job.jobType}
+                </span>
+              </div>
+            </div>
+            
+            <div className="flex flex-col sm:flex-row gap-4">
+              {job.file_name && (
+                <a
+                  href={`http://localhost:5000/uploads/general/${job.file_name}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium rounded-xl border border-slate-200 transition-all duration-200 hover:shadow-md"
+                >
+                  🗂️ View PDF
+                </a>
+              )}
+              
+              <button
+                onClick={handleInterestedClick}
+                className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 transform hover:-translate-y-0.5"
+              >
+                🚀 I'm Interested
+              </button>
+              
+              <button
+                onClick={handleGoBackClick}
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white hover:bg-slate-50 text-slate-700 font-medium rounded-xl border border-slate-200 transition-all duration-200 hover:shadow-md"
+              >
+                ← Go Back
+              </button>
+            </div>
+          </div>
+        </div>
 
-          <motion.button
-            onClick={handleInterestedClick}
-            className="px-6 py-3 bg-[#5C5470] text-white font-bold rounded-md hover:bg-[#DBD8E3] hover:text-black shadow-lg transition"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            I am Interested 🚀
-          </motion.button>
+        {/* Job Details Grid */}
+        <div className="grid lg:grid-cols-3 gap-8">
+          {/* Main Details */}
+          <div className="lg:col-span-2 space-y-6">
+            {/* Job Description */}
+            <div className="bg-white rounded-2xl shadow-lg border border-slate-200 p-6">
+              <h3 className="text-xl font-semibold text-slate-900 mb-4 flex items-center gap-2">
+                📝 Job Description
+              </h3>
+              <div className="text-slate-700 leading-relaxed whitespace-pre-wrap">
+                {job.jobDescription}
+              </div>
+            </div>
 
-          <motion.button
-            onClick={handleGoBackClick}
-            className="px-6 py-3 bg-gray-500 text-white font-bold rounded-md hover:bg-gray-400 shadow-lg transition"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            ⬅️ Go Back
-          </motion.button>
-        </motion.div>
+            {/* Duties & Responsibilities */}
+            <div className="bg-white rounded-2xl shadow-lg border border-slate-200 p-6">
+              <h3 className="text-xl font-semibold text-slate-900 mb-4 flex items-center gap-2">
+                📌 Key Responsibilities
+              </h3>
+              <div className="text-slate-700 leading-relaxed whitespace-pre-wrap">
+                {job.duties}
+              </div>
+            </div>
 
-        {/* Job Details Section */}
-        <motion.div
-          className="bg-[#352F44] text-[#DBD8E3] border border-gray-600 rounded-lg shadow-xl p-8"
-          initial={{ scale: 0.9, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 1, delay: 0.5 }}
-        >
-          <motion.h3
-            className="text-3xl font-bold text-[#DBD8E3] mb-4"
-            initial={{ x: -50, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ duration: 0.8 }}
-          >
-            {job.jobTitle} ({job.jobName})
-          </motion.h3>
+            {/* Required Skills */}
+            <div className="bg-white rounded-2xl shadow-lg border border-slate-200 p-6">
+              <h3 className="text-xl font-semibold text-slate-900 mb-4 flex items-center gap-2">
+                🛠️ Required Skills
+              </h3>
+              <div className="text-slate-700 leading-relaxed whitespace-pre-wrap">
+                {job.skills}
+              </div>
+            </div>
+          </div>
 
-          <table className="w-full border-collapse border border-gray-500 text-[#DBD8E3]">
-            <tbody>
-              <tr>
-                <td className="p-2 border border-gray-500">📍 Location</td>
-                <td className="p-2 border border-gray-500">{job.jobLocation}</td>
-              </tr>
-              <tr>
-                <td className="p-2 border border-gray-500">🏢 Department</td>
-                <td className="p-2 border border-gray-500">{job.jobDepartment}</td>
-              </tr>
-              <tr>
-                <td className="p-2 border border-gray-500">📆 Posted Date</td>
-                <td className="p-2 border border-gray-500">{job.jobPostedDate}</td>
-              </tr>
-              <tr>
-                <td className="p-2 border border-gray-500">📆 Ends Date</td>
-                <td className="p-2 border border-gray-500">{job.jobEndsDate}</td>
-              </tr>
-              <tr>
-                <td className="p-2 border border-gray-500">💼 Job Type</td>
-                <td className="p-2 border border-gray-500">{job.jobType}</td>
-              </tr>
-              <tr>
-                <td className="p-2 border border-gray-500">🎓 Qualifications</td>
-                <td className="p-2 border border-gray-500 whitespace-pre-wrap">{job.qualifications}</td>
-              </tr>
-              <tr>
-                <td className="p-2 border border-gray-500">🛠 Required Skills</td>
-                <td className="p-2 border border-gray-500 whitespace-pre-wrap">{job.skills}</td>
-              </tr>
-              <tr>
-                <td className="p-2 border border-gray-500">📝 Description</td>
-                <td className="p-2 border border-gray-500 whitespace-pre-wrap">{job.jobDescription}</td>
-              </tr>
-              <tr>
-                <td className="p-2 border border-gray-500">📌 Duties</td>
-                <td className="p-2 border border-gray-500 whitespace-pre-wrap">{job.duties}</td>
-              </tr>
-              <tr>
-                <td className="p-2 border border-gray-500">🔍 Experience</td>
-                <td className="p-2 border border-gray-500 whitespace-pre-wrap">{job.experience}</td>
-              </tr>
-            </tbody>
-          </table>
-        </motion.div>
-      </motion.div>
-    </>
-  );
+          {/* Sidebar */}
+          <div className="space-y-6">
+            {/* Job Info Card */}
+            <div className="bg-white rounded-2xl shadow-lg border border-slate-200 p-6">
+              <h3 className="text-xl font-semibold text-slate-900 mb-4 flex items-center gap-2">
+                ℹ️ Job Information
+              </h3>
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <span className="text-slate-500 text-sm font-medium min-w-fit">📍 Location:</span>
+                  <span className="text-slate-700 text-sm">{job.jobLocation}</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-slate-500 text-sm font-medium min-w-fit">🏢 Department:</span>
+                  <span className="text-slate-700 text-sm">{job.jobDepartment}</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-slate-500 text-sm font-medium min-w-fit">💼 Type:</span>
+                  <span className="text-slate-700 text-sm">{job.jobType}</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-slate-500 text-sm font-medium min-w-fit">📅 Posted:</span>
+                  <span className="text-slate-700 text-sm">{job.jobPostedDate}</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-slate-500 text-sm font-medium min-w-fit">⏰ Deadline:</span>
+                  <span className="text-slate-700 text-sm">{job.jobEndsDate}</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Qualifications Card */}
+            <div className="bg-white rounded-2xl shadow-lg border border-slate-200 p-6">
+              <h3 className="text-xl font-semibold text-slate-900 mb-4 flex items-center gap-2">
+                🎓 Qualifications
+              </h3>
+              <div className="text-slate-700 text-sm leading-relaxed whitespace-pre-wrap">
+                {job.qualifications}
+              </div>
+            </div>
+
+            {/* Experience Card */}
+            <div className="bg-white rounded-2xl shadow-lg border border-slate-200 p-6">
+              <h3 className="text-xl font-semibold text-slate-900 mb-4 flex items-center gap-2">
+                🔍 Experience Required
+              </h3>
+              <div className="text-slate-700 text-sm leading-relaxed whitespace-pre-wrap">
+                {job.experience}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Action Bar */}
+        <div className="mt-12 bg-white rounded-2xl shadow-lg border border-slate-200 p-6">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="text-center sm:text-left">
+              <h4 className="font-semibold text-slate-900">Ready to Apply?</h4>
+              <p className="text-slate-600 text-sm">Join our team and make an impact</p>
+            </div>
+            <div className="flex gap-4">
+              <button
+                onClick={handleGoBackClick}
+                className="px-6 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium rounded-xl border border-slate-200 transition-all duration-200"
+              >
+                ← Browse More Jobs
+              </button>
+              <button
+                onClick={handleInterestedClick}
+                className="px-8 py-3 bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 transform hover:-translate-y-0.5"
+              >
+                🚀 Apply Now
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </>
+);
 };
 
 export default JobDetails;
