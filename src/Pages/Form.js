@@ -916,7 +916,7 @@ const JobApplicationForm = () => {
 
             <div className="mb-4">
               <label htmlFor="consent" className="block text-sm font-medium text-gray-700">
-                I hereby give my consent for IFS to verify my background information.
+                I hereby give my consent for HireGenius to verify my background information.
               </label>
               <input
                 type="checkbox"
