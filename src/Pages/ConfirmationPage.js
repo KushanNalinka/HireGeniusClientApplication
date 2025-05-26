@@ -456,14 +456,7 @@ return (
                   <span className="text-2xl">💼</span>
                   <div><strong className="text-purple-200">Type:</strong> <span className="text-white">{job.jobType}</span></div>
                 </div>
-                <div className="flex items-center space-x-4 p-4 bg-gradient-to-r from-pink-500/20 to-rose-500/20 rounded-2xl border border-pink-400/30">
-                  <span className="text-2xl">🎓</span>
-                  <div><strong className="text-pink-200">Qualifications:</strong> <span className="text-white">{job.qualifications || "Not provided"}</span></div>
-                </div>
-                <div className="flex items-center space-x-4 p-4 bg-gradient-to-r from-indigo-500/20 to-blue-500/20 rounded-2xl border border-indigo-400/30">
-                  <span className="text-2xl">⚡</span>
-                  <div><strong className="text-indigo-200">Skills:</strong> <span className="text-white">{job.skills || "Not listed"}</span></div>
-                </div>
+                
               </div>
             </div>
             <div className="mt-8 p-6 bg-gradient-to-r from-slate-800/50 to-gray-800/50 backdrop-blur-lg rounded-2xl border border-white/20">
